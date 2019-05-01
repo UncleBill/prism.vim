@@ -48,7 +48,7 @@ function! s:PrismSet(wrkdir, ...) abort
   call writefile([json_encode(l:prism_config)], s:prism_config_file)
 endfunction
 
-command! -complete=customlist,prism#Complete -nargs=1 PrismSet call s:PrismSet(getcwd(), <f-args>)
+command! -complete=color -nargs=1 PrismSet call s:PrismSet(getcwd(), <f-args>)
 
 if (!s:PrismRestore())
   call Prism()
