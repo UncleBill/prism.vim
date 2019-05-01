@@ -1,11 +1,11 @@
 # prism.vim
 
-Set colorscheme basing on your working directory, help your distinguish a
-specific Vim instance among multiple ones from window previewer. It is like
-[peacock](https://marketplace.visualstudio.com/items?itemName=johnpapa.vscode-peacock)
+`prism.vim` sets colorscheme basing on your working directory, and helps you
+distinguish a specific Vim instance among multiple ones from window previewer.
+It is like [peacock](https://marketplace.visualstudio.com/items?itemName=johnpapa.vscode-peacock)
 for VSCode.
 
-`prism.vim` turns current working directory into a certain number, then choose
+`prism.vim` turns the current working directory into a certain number, then choose
 a colorscheme from provided colorscheme list.
 
 # Screenshots
@@ -22,7 +22,9 @@ With [vim-plug](https://github.com/junegunn/vim-plug) or your favorite plugin ma
 Plug 'UncleBill/prism.vim'
 ```
 
-# Setting colorscheme space for prism.vim
+# Usage
+
+## Setting colorscheme space for prism.vim
 
 ```vim
 let g:prism_colorschemes = ['atom', 'desert', 'solarized', 'badwolf', 'lightyellow',
@@ -31,6 +33,16 @@ let g:prism_colorschemes = ['atom', 'desert', 'solarized', 'badwolf', 'lightyell
 ```
 
 You can find a collection of colorscheme at [flazz/vim-colorschemes](https://github.com/flazz/vim-colorschemes)
+
+## Reset at runtime
+
+Use `PrismSet` command to reset colorscheme at runtime. `prism.vim` will record
+this colorscheme (in `g:prism_config_file`, defaults to `~/.prism.vim.json`), and use it in the future, for
+current working directory
+
+```
+:PrismSet<tab>
+```
 
 # License
 
