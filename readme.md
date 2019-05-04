@@ -5,8 +5,8 @@ distinguish a specific Vim instance among multiple ones from window previewer.
 It is like [peacock](https://marketplace.visualstudio.com/items?itemName=johnpapa.vscode-peacock)
 for VSCode.
 
-`prism.vim` turns the current working directory into a certain number, then choose
-a colorscheme from provided colorscheme list.
+`prism.vim` turns the current working directory into a certain number, with
+this number, it then chooses a colorscheme from [provided colorscheme list](#setting-colorscheme-space).
 
 # Screenshots
 
@@ -24,15 +24,19 @@ Plug 'UncleBill/prism.vim'
 
 # Usage
 
-## Setting colorscheme space for prism.vim
+## Setting colorscheme space
 
-```vim
+`Prism.vim` will pick one from colorschemes below to set up.
+
+```viml
+" defaults to ['peachpuff', 'desert', 'evening', 'murphy']
+" some of below are from https://github.com/flazz/vim-colorschemes
 let g:prism_colorschemes = ['atom', 'desert', 'solarized', 'badwolf', 'lightyellow',
       \ 'dracula', 'peachpuff', 'pablo', 'SlateDark', 'torte', 'blink', 'blueprint',
       \ 'Benokai', 'greens', 'grayorange', 'graywh']
 ```
 
-You can find a collection of colorscheme at [flazz/vim-colorschemes](https://github.com/flazz/vim-colorschemes)
+You can get a collection of colorschemes at [flazz/vim-colorschemes](https://github.com/flazz/vim-colorschemes)
 
 ## Reset at runtime
 
