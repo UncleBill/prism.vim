@@ -10,6 +10,9 @@ let g:loaded_prism = 1
 
 let s:default_colorschemes = ['peachpuff', 'desert', 'evening', 'murphy']
 function! Prism() abort
+  if s:PrismRestore()
+    return
+  endif
   let chars = getcwd()
   let list = split(chars, '\zs')
   let sum = 0
@@ -21,12 +24,17 @@ function! Prism() abort
   execute 'colorscheme ' . chosen
 endfunction
 
+function! s:getConfig() abort
+  let l:config = {}
+  if filereadable(s:prism_config_file)
+    let l:config = json_decode(join(readfile(s:prism_config_file), ''))
+  endif
+  return l:config
+endfunction
+
 " restore from config file
 function! s:PrismRestore() abort
-  let l:prism_config = {}
-  if filereadable(s:prism_config_file)
-    let l:prism_config = json_decode(join(readfile(s:prism_config_file), ''))
-  endif
+  let l:prism_config = s:getConfig()
   let color = get(l:prism_config, getcwd(), 0)
   if !empty(color)
     execute 'colo ' . color
@@ -39,10 +47,7 @@ endfunction
 " set a colorscheme for cwd, and record it
 function! s:PrismSet(wrkdir, ...) abort
   let color = a:1
-  let l:prism_config = {}
-  if exists(s:prism_config_file)
-    let l:prism_config = json_decode(readfile(s:prism_config_file))
-  endif
+  let l:prism_config = s:getConfig()
   let l:prism_config[a:wrkdir] = color
   execute 'colorscheme ' . color
   call writefile([json_encode(l:prism_config)], s:prism_config_file)
@@ -50,9 +55,7 @@ endfunction
 
 command! -complete=color -nargs=1 PrismSet call s:PrismSet(getcwd(), <f-args>)
 
-if (!s:PrismRestore())
-  call Prism()
-endif
+call Prism()
 augroup Prism
   autocmd!
   autocmd DirChanged global call Prism()
