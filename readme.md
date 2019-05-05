@@ -60,8 +60,7 @@ current working directory
 
 ## cd/lcd
 
-`prism.vim` listens to the autocmd `DirChanged`, there are four options that
-you can attach:
+`prism.vim` listens to the `DirChanged`, there are four options that you can attach:
 
 >				"window" to trigger on `:lcd`
 >				"global" to trigger on `:cd`
@@ -73,6 +72,18 @@ you can attach:
 ```vim
 let g:prism_dir_changed_pattern = ['window', 'global']
 ```
+
+## Tabs
+
+Enable `prism.vim` on tabs by:
+
+```vim
+" defaults to 0, disabled
+let g:prism_count_tab = 1
+```
+
+Then `prism.vim` adds tab index to count the value for picking colorscheme, and
+listens to `TabEnter`. Now switching tabs will change the colorscheme.
 
 # License
 

@@ -16,9 +16,14 @@ function! Prism() abort
     return
   endif
   let l:shift_period = get(g:, 'prism_shift_period', 0)
+  let l:count_tab = get(g:, 'prism_count_tab', 1)
   let chars = getcwd()
   let list = split(chars, '\zs')
   let sum = l:shift_period > 0 ? (s:days / l:shift_period) : 0
+  if l:count_tab
+    let sum = sum + tabpagenr()
+    echomsg sum
+  endif
   for char in list
     let sum = sum + char2nr(char)
   endfor
@@ -64,6 +69,9 @@ function! PrismInit() abort
   augroup Prism
     autocmd!
     execute 'autocmd DirChanged' join(l:pattern, ',') 'call Prism()'
+    if get(g:, 'prism_count_tab', 1)
+      autocmd TabEnter * call Prism()
+    endif
   augroup END
 endfunction
 
