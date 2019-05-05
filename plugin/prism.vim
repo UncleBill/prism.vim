@@ -5,7 +5,6 @@ if exists('g:loaded_prism') && g:loaded_prism
 endif
 
 let s:config_file = get(g:, 'prism_config_file', $HOME . '/.prism.vim.json')
-let s:shift_period = get(g:, 'prism_shift_period', 30)
 
 let g:loaded_prism = 1
 let s:days = localtime() / 3600 " days from 1979-1-1
@@ -16,9 +15,10 @@ function! Prism() abort
   if s:PrismRestore()
     return
   endif
+  let l:shift_period = get(g:, 'prism_shift_period', 0)
   let chars = getcwd()
   let list = split(chars, '\zs')
-  let sum = s:shift_period > 0 ? (s:days / s:shift_period) : 0
+  let sum = l:shift_period > 0 ? (s:days / l:shift_period) : 0
   for char in list
     let sum = sum + char2nr(char)
   endfor

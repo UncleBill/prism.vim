@@ -44,7 +44,7 @@ Tired of one fixed colorscheme? You can make it shift to another in X days
 automatically:
 
 ```vim
-let g:prism_shift_period = 0  " disable shifting,
+let g:prism_shift_period = 0  " disable shifting, default value
 let g:prism_shift_period = 30 " every 30 days, days from 1979-1-1,
 ```
 
