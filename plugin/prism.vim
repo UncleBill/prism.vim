@@ -58,8 +58,13 @@ endfunction
 
 command! -complete=color -nargs=1 PrismSet call s:PrismSet(getcwd(), <f-args>)
 
-call Prism()
-augroup Prism
-  autocmd!
-  autocmd DirChanged global call Prism()
-augroup END
+function! PrismInit() abort
+  call Prism()
+  let l:pattern = get(g:, 'prism_dir_changed_pattern', ['global'])
+  augroup Prism
+    autocmd!
+    execute 'autocmd DirChanged' join(l:pattern, ',') 'call Prism()'
+  augroup END
+endfunction
+
+call PrismInit()

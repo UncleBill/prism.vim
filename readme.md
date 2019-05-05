@@ -58,6 +58,22 @@ current working directory
 :PrismSet<tab>
 ```
 
+## cd/lcd
+
+`prism.vim` listens to the autocmd `DirChanged`, there are four options that
+you can attach:
+
+>				"window" to trigger on `:lcd`
+>				"global" to trigger on `:cd`
+>				"auto"   to trigger on 'autochdir'.
+>				"drop"	 to trigger on editing a file
+
+*see `:h DirChanged`*
+
+```vim
+let g:prism_dir_changed_pattern = ['window', 'global']
+```
+
 # License
 
 MIT License. Copyright (c) UncleBill
