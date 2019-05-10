@@ -22,7 +22,6 @@ function! Prism() abort
   let sum = l:shift_period > 0 ? (s:days / l:shift_period) : 0
   if l:count_tab
     let sum = sum + tabpagenr()
-    echomsg sum
   endif
   for char in list
     let sum = sum + char2nr(char)
