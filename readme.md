@@ -55,7 +55,10 @@ this colorscheme (in `g:prism_config_file`, defaults to `~/.prism.vim.json`), an
 current working directory
 
 ```
-:PrismSet<tab>
+" use current colorscheme
+:PrismSet<enter>
+" select from installed colorschemes
+:PrismSet <tab>
 ```
 
 ## cd/lcd

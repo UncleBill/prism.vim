@@ -52,15 +52,18 @@ endfunction
 
 
 " set a colorscheme for cwd, and record it
+" if no colorscheme privoded, use current one
 function! s:PrismSet(wrkdir, ...) abort
-  let color = a:1
+  let color = get(a:, 1, g:colors_name)
   let l:prism_config = s:getConfig()
   let l:prism_config[a:wrkdir] = color
   execute 'colorscheme ' . color
   call writefile([json_encode(l:prism_config)], s:config_file)
+  redrawstatus " to make following message show
+  echomsg '[prism] set' color 'for' getcwd()
 endfunction
 
-command! -complete=color -nargs=1 PrismSet call s:PrismSet(getcwd(), <f-args>)
+command! -complete=color -nargs=? PrismSet call s:PrismSet(getcwd(), <f-args>)
 
 function! PrismInit() abort
   call Prism()
