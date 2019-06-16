@@ -22,6 +22,8 @@ With [vim-plug](https://github.com/junegunn/vim-plug) or your favorite plugin ma
 Plug 'UncleBill/prism.vim'
 ```
 
+Requires `Vim 8.0+` for full support.
+
 # Usage
 
 ## Setting colorscheme space
@@ -70,11 +72,13 @@ current working directory
 >				"auto"   to trigger on 'autochdir'.
 >				"drop"	 to trigger on editing a file
 
-*see `:h DirChanged`*
+*See `:h DirChanged`*
 
 ```vim
 let g:prism_dir_changed_pattern = ['window', 'global']
 ```
+
+Also see `:h DirChanged` to check out the patterns your Vim supports.
 
 ## Tabs
 
