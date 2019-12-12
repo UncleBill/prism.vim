@@ -1,6 +1,6 @@
 # prism.vim
 
-`prism.vim` sets colorscheme basing on your working directory, and helps you
+`prism.vim` sets colorscheme basing on your working directory, to help you
 distinguish a specific Vim instance among multiple ones from window previewer.
 It is like [peacock](https://marketplace.visualstudio.com/items?itemName=johnpapa.vscode-peacock)
 for VSCode.
