@@ -1,12 +1,12 @@
 # prism.vim
 
 `prism.vim` sets colorscheme basing on your working directory, to help you
-distinguish a specific Vim instance among multiple ones from window previewer.
+distinguishing a specific Vim instance among multiple ones from window previewer.
 It is like [peacock](https://marketplace.visualstudio.com/items?itemName=johnpapa.vscode-peacock)
 for VSCode.
 
-`prism.vim` turns the current working directory into a certain number, with
-this number, it then chooses a colorscheme from [provided colorscheme list](#setting-colorscheme-space).
+`prism.vim` chooses a colorscheme from [provided colorscheme list](#setting-colorscheme-space)
+by a number calculated from the current working directory.
 
 # Screenshots
 
@@ -22,7 +22,7 @@ With [vim-plug](https://github.com/junegunn/vim-plug) or your favorite plugin ma
 Plug 'UncleBill/prism.vim'
 ```
 
-Requires `Vim 8.0+` for full support.
+_Requires `Vim 8.0+` for full support._
 
 # Usage
 
@@ -47,14 +47,14 @@ automatically:
 
 ```vim
 let g:prism_shift_period = 0  " disable shifting, default value
-let g:prism_shift_period = 30 " every 30 days, days from 1979-1-1,
+let g:prism_shift_period = 30 " every 30 days, days since 1979-1-1,
 ```
 
 ## Reset at runtime
 
 Use `PrismSet` command to reset colorscheme at runtime. `prism.vim` will record
-this colorscheme (in `g:prism_config_file`, defaults to `~/.prism.vim.json`), and use it in the future, for
-current working directory
+this colorscheme (in `g:prism_config_file`, defaults to `~/.prism.vim.json`),
+and use it in the future, for current working directory
 
 ```
 " use current colorscheme
@@ -65,7 +65,8 @@ current working directory
 
 ## cd/lcd
 
-`prism.vim` listens to the `DirChanged`, there are four options that you can attach:
+`prism.vim` listens to the `DirChanged` event, there are four options that can
+be attached to:
 
 >				"window" to trigger on `:lcd`
 >				"global" to trigger on `:cd`
@@ -78,11 +79,11 @@ current working directory
 let g:prism_dir_changed_pattern = ['window', 'global']
 ```
 
-Also see `:h DirChanged` to check out the patterns your Vim supports.
+Also see `:h DirChanged` for the patterns your Vim supports.
 
 ## Tabs
 
-Enable `prism.vim` on tabs by:
+Enable `prism.vim` on switching tabs by:
 
 ```vim
 " defaults to 0, disabled
