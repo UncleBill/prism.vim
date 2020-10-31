@@ -70,7 +70,7 @@ function! PrismInit() abort
   let l:pattern = get(g:, 'prism_dir_changed_pattern', ['global'])
   augroup Prism
     autocmd!
-    execute 'autocmd DirChanged' join(l:pattern, ',') 'call Prism()'
+    execute 'autocmd DirChanged' join(l:pattern, ',') '++nested call Prism()'
     if get(g:, 'prism_count_tab', 0)
       autocmd TabEnter * call Prism()
     endif
