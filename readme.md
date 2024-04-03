@@ -1,12 +1,12 @@
 # prism.vim
 
-`prism.vim` sets colorscheme basing on your working directory, to help you
-distinguishing a specific Vim instance among multiple ones from window previewer.
-It is like [peacock](https://marketplace.visualstudio.com/items?itemName=johnpapa.vscode-peacock)
+`prism.vim` sets colorscheme based on your working directory. This helps you
+distinguish among multiple instances in the window previewer. It's similar to
+[Peacock](https://marketplace.visualstudio.com/items?itemName=johnpapa.vscode-peacock)
 for VSCode.
 
 `prism.vim` chooses a colorscheme from [provided colorscheme list](#setting-colorscheme-space)
-by a number calculated from the current working directory.
+, the choice is determined by a number, which is calculated based on the current working directory.
 
 # Screenshots
 
@@ -42,7 +42,7 @@ You can get a collection of colorschemes at [flazz/vim-colorschemes](https://git
 
 ## Shifting
 
-Tired of one fixed colorscheme? You can make it shift to another in X days
+Tired of one fixed colorscheme? You can make it shift to another every X days
 automatically:
 
 ```vim
@@ -52,9 +52,9 @@ let g:prism_shift_period = 30 " every 30 days, days since 1979-1-1,
 
 ## Reset at runtime
 
-Use `PrismSet` command to reset colorscheme at runtime. `prism.vim` will record
-this colorscheme (in `g:prism_config_file`, defaults to `~/.prism.vim.json`),
-and use it in the future, for current working directory
+You can use the `PrismSet` command to reset colorscheme at runtime. `prism.vim` will record
+your chosen colorscheme (in `g:prism_config_file`, defaults to `~/.prism.vim.json`),
+and will use this colorscheme for the working director in the future.
 
 ```
 " use current colorscheme
@@ -68,12 +68,12 @@ and use it in the future, for current working directory
 `prism.vim` listens to the `DirChanged` event, there are four options that can
 be attached to:
 
->				"window" to trigger on `:lcd`
->				"global" to trigger on `:cd`
->				"auto"   to trigger on 'autochdir'.
->				"drop"	 to trigger on editing a file
+>     			"window" to trigger on `:lcd`
+>     			"global" to trigger on `:cd`
+>     			"auto"   to trigger on 'autochdir'.
+>     			"drop"	 to trigger on editing a file
 
-*See `:h DirChanged`*
+_See `:h DirChanged`_
 
 ```vim
 let g:prism_dir_changed_pattern = ['window', 'global']

@@ -1,0 +1,40 @@
+*prism.txt*         Colorscheme switcher for Vim
+
+Version: 0.0.1
+Author: UncleBill <billbill290 at gmail.com>
+
+CONTENTS                  *prism-content*
+
+Setting                     |setting|
+  Shifting                     |setting-shifting|
+
+==============================================================================
+
+Setting                     *setting*
+
+Setting colorschemes pool:
+>
+ let g:prism_colorschemes = ['atom', 'desert', 'solarized', 'badwolf', 'lightyellow',
+      \ 'dracula', 'peachpuff', 'pablo', 'SlateDark', 'torte', 'blink', 'blueprint',
+      \ 'Benokai', 'greens', 'grayorange', 'graywh']
+<
+
+==============================================================================
+
+Shifting                     *setting-shifting*
+
+Make prism.vim automatically shift colorscheme to next one: 
+>
+ let g:prism_shift_period = 0  " disable shifting, default value
+ let g:prism_shift_period = 30 " every 30 days, days since 1979-1-1
+<
+
+Setting colorschemes pool: 
+>
+ let g:prism_colorschemes = ['atom', 'desert', 'solarized', 'badwolf', 'lightyellow',
+      \ 'dracula', 'peachpuff', 'pablo', 'SlateDark', 'torte', 'blink', 'blueprint',
+      \ 'Benokai', 'greens', 'grayorange', 'graywh']
+<
+
+==============================================================================
+vim:tw=78:nosta:noet:ts=8:sts=0:ft=help:noet:fen:
